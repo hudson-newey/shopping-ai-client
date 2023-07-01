@@ -1,1 +1,22 @@
-<input type="text" class="bg-slate-700 w-96 border-stone-700 text-white" />
+<div>
+  <div>
+    <ng-container *ngFor="let message of messages">
+      <ais-chat-message
+        [name]="message.name"
+        [message]="message.message"
+        [response]="message.response ?? 'Thinking...'"
+      ></ais-chat-message>
+    </ng-container>
+  </div>
+
+  <div>
+    <input
+      type="text"
+      class="w-96 bg-slate-700 text-white text-xl font-sans border-solid border-stone-300 rounded"
+      spellcheck="true"
+      multiple="true"
+      [(ngModel)]="userInput"
+      (keydown.enter)="userInput.length > 0 ? sendMessage() : null"
+    />
+  </div>
+</div>
