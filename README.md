@@ -1,27 +1,48 @@
 # AI Shopping Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+[onlineshopgpt.com](https://onlineshopgpt.com)
 
-## Development server
+## To Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```sh
+$ npm start
+>
+```
 
-## Code scaffolding
+To build static webpage (for deployment on aws)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+$ ./build-prod.sh
+>
+```
 
-## Build
+## Shopper AI Overview
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Competitors**
 
-## Running unit tests
+* shop.ai (shop.app)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Possible revenue streams**
 
-## Running end-to-end tests
+* Referral links
+* Web component for a specific store
+  * Companies can see user profiles
+  * Companies can create user profiles
+* Sponsored ads at top of results
+* Banner ads (probably not)
+* API
+* Sell web & mobile clients for specific stores
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Clients**
 
-## Further help
+* Web app
+* Mobile app
+* Progressive web app
+* Desktop app
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Advertisements**
+
+* Reddit
+* Twitter
+* TikTok
+* Google ads
