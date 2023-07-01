@@ -1,5 +1,5 @@
-<div>
-  <div>
+<div class="flex flex-col min-h-screen max-h-screen container w-1/3">
+  <div class="overflow-y-auto">
     <ng-container *ngFor="let message of messages">
       <ais-chat-message
         [name]="message.name"
@@ -9,11 +9,13 @@
     </ng-container>
   </div>
 
-  <div>
+  <div class="mt-auto mb-6">
     <input
+      id="main-input"
       type="text"
-      class="w-96 bg-slate-700 text-white text-xl font-sans border-solid border-stone-300 rounded"
+      class="bg-gray-600 text-white text-xl font-sans p-1 rounded border border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
       spellcheck="true"
+      placeholder="Items to build a drain in my driveway"
       multiple="true"
       [(ngModel)]="userInput"
       (keydown.enter)="userInput.length > 0 ? sendMessage() : null"

@@ -1,0 +1,23 @@
+<div class="flex flex-col min-h-screen absolute left-0 top-0 bg-gray-600 p-5 border-r border-r-gray-700 max-w-xs">
+  <fa-icon [icon]="['fas', 'bars']" class="text-white hover:cursor-pointer text-3xl m-1" (click)="collapsed = !collapsed"></fa-icon>
+
+  <div>
+    <ng-template *ngIf="!collapsed; else hiddenTemplate">
+      use ngIf
+    </ng-template>
+
+    <ng-template #hiddenTemplate>
+      <div class="flex-grow">
+        <ng-container *ngFor="let chat of chatHistory">
+          <ais-saved-chat [chat]="chat"></ais-saved-chat>
+        </ng-container>
+      </div>
+
+      <div class="mt-auto">
+        <h2 class="text-white text-lg">
+          {{ brandName }}
+        </h2>
+      </div>
+    </ng-template>
+  </div>
+</div>

@@ -1,14 +1,16 @@
-<div class="bg-slate-500 m-5 w-96 rounded">
+<div class="bg-gray-600 m-5 rounded p-2">
   <div class="flex flex-1 m-3">
     <fa-icon [icon]="['fas', 'user']"></fa-icon>
 
-    <span class="text-gray-50">{{ message }}</span>
+    <strong class="text-gray-50 ml-3">{{ message }}</strong>
   </div>
 
   <div class="flex">
     <div class="ml-auto m-3">
 
-      <span class="text-gray-50 text-right">{{ response }}</span>
+      <span class="text-gray-50 text-right mr-3">
+        <span [innerHTML]="formattedResponse"></span>
+      </span>
       <fa-icon [icon]="['fas', 'gears']"></fa-icon>
     </div>
   </div>

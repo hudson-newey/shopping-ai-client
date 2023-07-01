@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'ais-chat',
   templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent {
   public constructor(private api: ApiService) {}
