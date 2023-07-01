@@ -17,22 +17,27 @@ export class ChatHistoryComponent {
   public get chatHistory(): Chat[] {
     return [
       new Chat(
+        faker.number.int(),
         faker.lorem.sentences(3).split('. '),
         faker.lorem.sentences(3).split('. ')
       ),
       new Chat(
+        faker.number.int(),
         faker.lorem.sentences(3).split('. '),
         faker.lorem.sentences(3).split('. ')
       ),
       new Chat(
+        faker.number.int(),
         faker.lorem.sentences(3).split('. '),
         faker.lorem.sentences(3).split('. ')
       ),
       new Chat(
+        faker.number.int(),
         faker.lorem.sentences(3).split('. '),
         faker.lorem.sentences(3).split('. ')
       ),
       new Chat(
+        faker.number.int(),
         faker.lorem.sentences(3).split('. '),
         faker.lorem.sentences(3).split('. ')
       ),

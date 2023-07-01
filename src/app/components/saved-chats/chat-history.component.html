@@ -6,12 +6,17 @@
 
   <div>
     <ng-template *ngIf="!open; else hiddenTemplate">
-      use ngIf
     </ng-template>
 
     <ng-template #hiddenTemplate>
       <hr>
       <div class="flex-grow">
+        <a href="/">
+          <div class="text-gray-50 my-2 p-3 bg-gray-800 border border-gray-600 rounded hover:bg-gray-600">
+            <fa-icon [icon]="['fas', 'plus']" class="mr-3"></fa-icon> New Chat
+          </div>
+        </a>
+
         <ng-container *ngFor="let chat of chatHistory">
           <ais-saved-chat [chat]="chat"></ais-saved-chat>
         </ng-container>

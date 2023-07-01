@@ -4,7 +4,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ChatComponent } from "./components/chat/chat.component";
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faGears, faMagnifyingGlass, faUser, fas } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faGears, faMagnifyingGlass, faPlus, faUser, fas } from "@fortawesome/free-solid-svg-icons";
 import { FormsModule } from "@angular/forms";
 import { ChatMessageComponent } from "./components/chat-message/chat-message.component";
 import { ChatHistoryComponent } from "./components/saved-chats/chat-history.component";
@@ -36,5 +36,6 @@ export class AppModule {
     library.addIcons(faGears);
     library.addIcons(faBars);
     library.addIcons(faMagnifyingGlass);
+    library.addIcons(faPlus);
   }
 }

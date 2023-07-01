@@ -9,8 +9,7 @@ import { Chat } from 'src/app/models/Chat';
 export class SavedChatComponent {
   public constructor() { }
 
-  @Input()
-  public chat!: Chat;
+  @Input() public chat!: Chat;
 
   public get initialPrompt(): string {
     return this.chat.prompts[0];
