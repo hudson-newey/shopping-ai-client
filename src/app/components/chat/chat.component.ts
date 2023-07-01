@@ -13,13 +13,7 @@ export class ChatComponent {
   public userInput: string = '';
   public user: User = new User('Anonymous');
 
-  public messages: ChatMessage[] = [
-    {
-      name: this.user.username,
-      message: 'Hello, World!',
-      response: 'Hello, World!',
-    },
-  ];
+  public messages: ChatMessage[] = [];
 
   public sendMessage(): void {
     const message: ChatMessage = {

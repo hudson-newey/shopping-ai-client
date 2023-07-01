@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-
-const apiEndpoint = "http://localhost:8080/api/";
+import { environment } from "../environment";
 
 interface ApiResponse {
   role: string;
@@ -21,6 +20,6 @@ export class ApiService {
   }
 
   private constructApiUrl(message: string): string {
-    return `${apiEndpoint}?q=${message}`;
+    return `${environment.apiUrl}?q=${message}`;
   }
 }
