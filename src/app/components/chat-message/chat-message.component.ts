@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 export interface ChatMessage {
@@ -10,13 +10,15 @@ export interface ChatMessage {
 @Component({
   selector: 'ais-chat-message',
   templateUrl: './chat-message.component.html',
+  styleUrls: ['./chat-message.component.scss'],
 })
 export class ChatMessageComponent {
   public constructor(private sanitizer: DomSanitizer) {}
 
   @Input() public name: string = 'Anonymous';
   @Input() public message: string = '';
-  @Input() public response?: string = 'Thinking...';
+  @Input() public thinking: boolean = true;
+  @Input() public response?: string;
 
   public get formattedResponse(): SafeHtml | undefined {
     if (!this.response) {
@@ -37,10 +39,10 @@ export class ChatMessageComponent {
     // replace new line characters with <br>
     return this.sanitizer.bypassSecurityTrustHtml(
       result.replace(/\n/g, '<br/>')
-    );
-  }
+      );
+    }
 
-  private createAmazonUrl(productName: string): string {
-    return `https://www.amazon.com/s?k=${productName}&tag=shoppingas09c-20&linkCode=ur2&linkId=13298757f791956381bc4bf80afbb588&camp=1789&creative=9325`;
-  }
+    private createAmazonUrl(productName: string): string {
+      return `https://www.amazon.com/s?k=${productName}&tag=shoppingas09c-20&linkCode=ur2&linkId=13298757f791956381bc4bf80afbb588&camp=1789&creative=9325`;
+    }
 }

@@ -1,22 +1,20 @@
-<div class="flex flex-col min-h-screen absolute left-0 top-0 bg-gray-600 p-5 border-r border-r-gray-700 max-w-xs">
-  <fa-icon [icon]="['fas', 'bars']" class="text-white hover:cursor-pointer text-3xl m-1" (click)="collapsed = !collapsed"></fa-icon>
+<div class="flex flex-col min-h-screen absolute left-0 top-0 bg-gray-700 p-5 border-r border-r-gray-600 shadow max-w-xs">
+  <div class="flex items-center">
+    <fa-icon [icon]="['fas', 'bars']" class="text-gray-50 text-3xl m-1 hover:cursor-pointer hover:text-gray-300" (click)="open = !open"></fa-icon>
+    <h1 *ngIf="open" class="ml-2 text-gray-50 font-semibold text-xlg">{{ brandName }}</h1>
+  </div>
 
   <div>
-    <ng-template *ngIf="!collapsed; else hiddenTemplate">
+    <ng-template *ngIf="!open; else hiddenTemplate">
       use ngIf
     </ng-template>
 
     <ng-template #hiddenTemplate>
+      <hr>
       <div class="flex-grow">
         <ng-container *ngFor="let chat of chatHistory">
           <ais-saved-chat [chat]="chat"></ais-saved-chat>
         </ng-container>
-      </div>
-
-      <div class="mt-auto">
-        <h2 class="text-white text-lg">
-          {{ brandName }}
-        </h2>
       </div>
     </ng-template>
   </div>

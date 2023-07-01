@@ -5,20 +5,32 @@
         [name]="message.name"
         [message]="message.message"
         [response]="message.response ?? 'Thinking...'"
+        [thinking]="message.response ? true : false"
       ></ais-chat-message>
     </ng-container>
   </div>
 
-  <div class="mt-auto mb-6">
+  <ng-container *ngIf="messages.length <= 0">
+    <ais-examples></ais-examples>
+  </ng-container>
+
+  <div class="mt-auto mb-6 flex">
     <input
       id="main-input"
       type="text"
-      class="bg-gray-600 text-white text-xl font-sans p-1 rounded border border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      class="bg-gray-700 border-gray-500 border-r-0 text-gray-50 text-lg font-sans p-3 rounded rounded-r-none drop-shadow outline-none focus:outline-gray-600 flex-grow"
       spellcheck="true"
-      placeholder="Items to build a drain in my driveway"
+      placeholder="Search for a product"
       multiple="true"
       [(ngModel)]="userInput"
-      (keydown.enter)="userInput.length > 0 ? sendMessage() : null"
+      (keydown.enter)="sendMessage()"
     />
+
+    <button
+      class="bg-gray-700 border-gray-500 border-l-0 p-2 px-4 rounded rounded-l-none text-gray-50 focus:outline-gray-600 hover:bg-gray-600 hover:cursor-pointer"
+      (click)="sendMessage()"
+    >
+      <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
+    </button>
   </div>
 </div>

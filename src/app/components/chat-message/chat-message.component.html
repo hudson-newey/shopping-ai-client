@@ -1,4 +1,7 @@
-<div class="bg-gray-600 m-5 rounded p-2">
+<div
+  [ngClass]="thinking ? 'bg-gray-600' : 'c-animated-background'"
+  class="m-5 rounded p-2 shadow"
+>
   <div class="flex flex-1 m-3">
     <fa-icon [icon]="['fas', 'user']"></fa-icon>
 

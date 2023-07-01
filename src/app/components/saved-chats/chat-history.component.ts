@@ -10,7 +10,7 @@ import { Chat } from 'src/app/models/Chat';
 export class ChatHistoryComponent {
   public constructor() {}
 
-  public collapsed: boolean = false;
+  public open: boolean = false;
   public brandName: string = environment.brandName;
 
   // TODO: when api is fully functional
