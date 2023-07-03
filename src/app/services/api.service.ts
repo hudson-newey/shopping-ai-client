@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environment';
+import { ApiChatMessage } from '../components/chat-message/chat-message.component';
 
 interface ApiResponse {
   role: string;
@@ -12,12 +13,25 @@ interface ApiResponse {
 export class ApiService {
   public constructor() {}
 
-  public get(message: string): Promise<ApiResponse> {
+  public requestResponse(message: string, chatHistory: ApiChatMessage[]): Promise<ApiResponse> {
     const url = this.constructApiUrl(message);
 
     // since the API costs money to run, we should use mock responses for the development environment
     if (environment.production) {
-      return fetch(url).then((response) => response.json());
+      const requestBody = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          history: chatHistory,
+        })
+      };
+
+      return fetch(url, requestBody).then((response) => {
+        console.log(response);
+        return response.json()
+      });
     } else {
       return new Promise((resolve) => {
         setTimeout(() => {

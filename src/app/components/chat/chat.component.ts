@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatMessage } from '../chat-message/chat-message.component';
+import { ApiChatMessage, ChatMessage } from '../chat-message/chat-message.component';
 import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -47,8 +47,31 @@ export class ChatComponent implements OnInit {
 
     this.messages.push(message);
 
-    this.api.get(query).then((response) => {
+    let apiMessages: ApiChatMessage[] = [];
+    this.messages.forEach((message: ChatMessage) => {
+      apiMessages.push(...this.convertClientMessageToApiMessages(message));
+    });
+
+    this.api.requestResponse(query, apiMessages).then((response) => {
       message.response = response.content;
     });
+  }
+
+  private convertClientMessageToApiMessages(message: ChatMessage): ApiChatMessage[] {
+    let messages: ApiChatMessage[] = [
+      {
+        role: "user",
+        content: message.message,
+      },
+    ];
+
+    if (message.response) {
+      messages.push({
+        role: "assistant",
+        content: message.response,
+      });
+    }
+
+    return messages;
   }
 }

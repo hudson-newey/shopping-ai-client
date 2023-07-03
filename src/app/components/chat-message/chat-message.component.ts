@@ -7,6 +7,11 @@ export interface ChatMessage {
   response?: string;
 }
 
+export interface ApiChatMessage {
+  role: string;
+  content: string;
+}
+
 @Component({
   selector: 'ais-chat-message',
   templateUrl: './chat-message.component.html',
