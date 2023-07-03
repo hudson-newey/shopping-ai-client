@@ -4,13 +4,14 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ChatComponent } from "./components/chat/chat.component";
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faGears, faMagnifyingGlass, faPlus, faUser, fas } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faGears, faLink, faMagnifyingGlass, faPlus, faUser, fas } from "@fortawesome/free-solid-svg-icons";
 import { FormsModule } from "@angular/forms";
 import { ChatMessageComponent } from "./components/chat-message/chat-message.component";
 import { ChatHistoryComponent } from "./components/saved-chats/chat-history.component";
 import { SavedChatComponent } from "./components/saved-chat/saved-chat.component";
 import { ExamplesComponent } from "./components/examples/examples.component";
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { faFacebook, faReddit, faTiktok, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 @NgModule({
   declarations: [
@@ -44,5 +45,11 @@ export class AppModule {
     library.addIcons(faBars);
     library.addIcons(faMagnifyingGlass);
     library.addIcons(faPlus);
+    library.addIcons(faTwitter);
+    library.addIcons(faFacebook);
+    library.addIcons(faReddit);
+    library.addIcons(faTiktok);
+    library.addIcons(faWhatsapp);
+    library.addIcons(faLink);
   }
 }
