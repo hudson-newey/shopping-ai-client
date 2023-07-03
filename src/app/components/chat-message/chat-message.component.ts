@@ -38,7 +38,7 @@ export class ChatMessageComponent {
       const resultText = item.replace(":", "").replace(/[0-9]+\. /, "");
 
       // add referral parameters and amazon search url
-      result = result.replace(resultText, `<a href="${this.createAmazonUrl(resultText)}" class="text-blue-400">${resultText}</a>`);
+      result = result.replace(resultText, `<a href="${this.createAmazonUrl(resultText)}" class="text-blue-400" target="_blank">${resultText}</a>`);
     });
 
     // replace new line characters with <br>
