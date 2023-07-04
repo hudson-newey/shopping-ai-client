@@ -17,13 +17,16 @@
     </div>
   </div>
 
-  <div class="flex m-3 text-gray-100">
-    <span class="mr-2">Share:</span>
-    <fa-icon class="mr-2" [icon]="['fab', 'twitter']"></fa-icon>
-    <fa-icon class="mr-2" [icon]="['fab', 'facebook']"></fa-icon>
-    <fa-icon class="mr-2" [icon]="['fab', 'reddit']"></fa-icon>
-    <fa-icon class="mr-2" [icon]="['fab', 'tiktok']"></fa-icon>
-    <fa-icon class="mr-2" [icon]="['fab', 'whatsapp']"></fa-icon>
-    <fa-icon class="mr-2" [icon]="['fab', 'link']"></fa-icon>
+  <ais-share-menu [chatMessage]="message"></ais-share-menu>
+
+  <div *ngIf="relatedSearches.length" class="text-gray-200">
+    <b>Related Amazon searches</b>
+
+    <ng-container *ngFor="let search of relatedSearches">
+      <div class="flex">
+        <fa-icon class="mr-2" [icon]="['fas', 'magnifying-glass']"></fa-icon>
+        <a [href]="createAmazonSearchUrl(search)" class="mr-2 text-blue-300" target="_blank">{{ search }}</a>
+      </div>
+    </ng-container>
   </div>
 </div>

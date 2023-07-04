@@ -1,0 +1,12 @@
+<div class="flex my-3 text-gray-100">
+  <span class="mr-2">Share:</span>
+  <a class="mr-2 cursor-pointer hover:text-gray-400" [href]="'https://twitter.com/intent/tweet?text=' + shareableLink" target="_blank">
+    <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
+  </a>
+  <a class="mr-2 cursor-pointer hover:text-gray-400" [href]="'https://www.reddit.com/submit?url=' + shareableLink" target="_blank">
+    <fa-icon [icon]="['fab', 'reddit']"></fa-icon>
+  </a>
+  <a class="mr-2 cursor-pointer hover:text-gray-400" [href]="shareableLink" target="_blank">
+    <fa-icon [icon]="['fas', 'link']"></fa-icon>
+  </a>
+</div>

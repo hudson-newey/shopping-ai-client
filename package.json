@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --poll 1100",
+    "start": "ng serve --watch",
     "start-prod": "ng serve --configuration=production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

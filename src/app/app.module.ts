@@ -12,6 +12,8 @@ import { SavedChatComponent } from "./components/saved-chat/saved-chat.component
 import { ExamplesComponent } from "./components/examples/examples.component";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { faFacebook, faReddit, faTiktok, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { HttpClientModule } from "@angular/common/http";
+import { ShareMenuComponent } from "./components/share-menu/share-menu.component";
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { faFacebook, faReddit, faTiktok, faTwitter, faWhatsapp } from "@fortawes
     ChatHistoryComponent,
     SavedChatComponent,
     ExamplesComponent,
+    ShareMenuComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
@@ -46,10 +50,7 @@ export class AppModule {
     library.addIcons(faMagnifyingGlass);
     library.addIcons(faPlus);
     library.addIcons(faTwitter);
-    library.addIcons(faFacebook);
     library.addIcons(faReddit);
-    library.addIcons(faTiktok);
-    library.addIcons(faWhatsapp);
     library.addIcons(faLink);
   }
 }

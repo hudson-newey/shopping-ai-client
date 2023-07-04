@@ -3,5 +3,5 @@ export const environment = {
   apiUrl: 'http://localhost:8080/api',
   brandName: 'Online Shop GPT',
   affiliateCode: "shoppingas09c-20",
-  url: "http://onlineshopgpt.com",
+  url: "https://onlineshopgpt.com",
 };
