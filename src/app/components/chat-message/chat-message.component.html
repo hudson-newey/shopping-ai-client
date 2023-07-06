@@ -5,19 +5,19 @@
   <div class="flex flex-1 m-3">
     <fa-icon [icon]="['fas', 'user']"></fa-icon>
 
-    <strong class="text-gray-50 ml-3">{{ message }}</strong>
+    <strong class="text-gray-50 ml-3">{{ message.message }}</strong>
   </div>
 
   <div class="flex">
     <div class="ml-auto m-3">
 
-      <span class="text-gray-50 text-right mr-3">
+      <span [class.text-red-400]="message.error" class="text-gray-50 text-right mr-3">
         <span [innerHTML]="formattedResponse"></span>
       </span>
     </div>
   </div>
 
-  <ais-share-menu [chatMessage]="message"></ais-share-menu>
+  <ais-share-menu [chatMessage]="message.message"></ais-share-menu>
 
   <div *ngIf="relatedSearches.length" class="text-gray-200">
     <b>Related Amazon searches</b>

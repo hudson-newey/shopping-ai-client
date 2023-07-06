@@ -1,12 +1,7 @@
 <div class="flex flex-col min-h-screen max-h-screen sm:w-2/3">
   <div class="overflow-y-auto">
     <ng-container *ngFor="let message of messages">
-      <ais-chat-message
-        [name]="message.name"
-        [message]="message.message"
-        [response]="message.response ?? 'Thinking...'"
-        [thinking]="message.response ? true : false"
-      ></ais-chat-message>
+      <ais-chat-message [message]="message"></ais-chat-message>
     </ng-container>
   </div>
 

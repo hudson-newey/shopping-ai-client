@@ -58,9 +58,14 @@ export class ChatComponent implements OnInit {
       apiMessages.push(...this.convertClientMessageToApiMessages(message));
     });
 
-    this.api.requestResponse(query, apiMessages).then((response) => {
-      message.response = response.content;
-    });
+    this.api.requestResponse(query, apiMessages)
+      .then((response) => {
+        message.response = response.content;
+      })
+      .catch((error) => {
+        message.response = error.message;
+        message.error = true;
+      });
   }
 
   private isBannedQuery(query: string): boolean {
