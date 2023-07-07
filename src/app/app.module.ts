@@ -1,5 +1,6 @@
 import { NgModule, isDevMode } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ChatComponent } from "./components/chat/chat.component";
@@ -11,7 +12,7 @@ import { ChatHistoryComponent } from "./components/saved-chats/chat-history.comp
 import { SavedChatComponent } from "./components/saved-chat/saved-chat.component";
 import { ExamplesComponent } from "./components/examples/examples.component";
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { faFacebook, faReddit, faTiktok, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faReddit, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { HttpClientModule } from "@angular/common/http";
 import { ShareMenuComponent } from "./components/share-menu/share-menu.component";
 
@@ -27,6 +28,7 @@ import { ShareMenuComponent } from "./components/share-menu/share-menu.component
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,

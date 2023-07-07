@@ -18,8 +18,9 @@ export class ChatComponent implements OnInit {
 
   public userInput: string = "";
   public user: User = new User("Anonymous");
-
   public messages: ChatMessage[] = [];
+
+  protected awaitingResponse: boolean = false;
 
   public ngOnInit(): void {
     const queryParameter: string = "q";
@@ -58,13 +59,16 @@ export class ChatComponent implements OnInit {
       apiMessages.push(...this.convertClientMessageToApiMessages(message));
     });
 
+    this.awaitingResponse = true;
     this.api.requestResponse(query, apiMessages)
       .then((response) => {
         message.response = response.content;
+        this.awaitingResponse = false;
       })
       .catch((error) => {
         message.response = error.message;
         message.error = true;
+        this.awaitingResponse = false;
       });
   }
 

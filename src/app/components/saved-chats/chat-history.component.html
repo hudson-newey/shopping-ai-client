@@ -1,18 +1,27 @@
-<div class="flex-col min-h-screen absolute left-0 top-0 bg-gray-700 p-5 border-r border-r-gray-600 shadow max-w-xs hidden md:flex">
+<div
+  class="flex-col min-h-screen absolute left-0 top-0 bg-gray-700 p-5 border-r border-r-gray-600 shadow max-w-xs hidden md:flex"
+>
   <div class="flex items-center">
-    <fa-icon [icon]="['fas', 'bars']" class="text-gray-50 text-3xl m-1 hover:cursor-pointer hover:text-gray-300" (click)="open = !open"></fa-icon>
-    <h1 *ngIf="open" class="ml-2 text-gray-50 font-semibold text-xlg">{{ brandName }}</h1>
+    <fa-icon
+      [icon]="['fas', 'bars']"
+      class="text-gray-50 text-3xl m-1 hover:cursor-pointer hover:text-gray-300"
+      (click)="open = !open"
+    ></fa-icon>
+    <h1 *ngIf="open" class="ml-2 text-gray-50 font-semibold text-xlg">
+      {{ brandName }}
+    </h1>
   </div>
 
   <div>
-    <ng-template *ngIf="!open; else hiddenTemplate">
-    </ng-template>
+    <ng-template *ngIf="!open; else hiddenTemplate"> </ng-template>
 
     <ng-template #hiddenTemplate>
-      <hr>
+      <hr />
       <div class="flex-grow w-56">
         <a href="/">
-          <div class="text-gray-50 my-2 p-3 bg-gray-800 border border-gray-600 rounded hover:bg-gray-600">
+          <div
+            class="text-gray-50 my-2 p-3 bg-gray-800 border border-gray-600 rounded hover:bg-gray-600"
+          >
             <fa-icon [icon]="['fas', 'plus']" class="mr-3"></fa-icon> New Chat
           </div>
         </a>

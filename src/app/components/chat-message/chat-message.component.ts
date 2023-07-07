@@ -47,9 +47,9 @@ export class ChatMessageComponent {
 
     // add amazon links and referral parameters
     let result = this.response;
-    const foundAmazonItems = result.match(/[0-9]+\..+\:/gi);
+    const foundAmazonItems = result.match(/[0-9]+?..+?[\:|\-]/gi);
     const foundAmazonSearchRequests: RegExpMatchArray | null =
-      result.match(/".+"/gi);
+      result.match(/"[^"]+?"/gi);
 
     foundAmazonSearchRequests?.forEach((searchRequest: string) => {
       result = result.replace(
@@ -59,16 +59,25 @@ export class ChatMessageComponent {
         )}" class="text-blue-300" target="_blank">${searchRequest}</a>`
       );
 
-      this.relatedSearches.push(searchRequest.replace(/"/g, ""));
+      const relatedSearchText = searchRequest.replace(/"/g, "");
+
+      if (!this.relatedSearches.includes(relatedSearchText)) {
+        this.relatedSearches.push(relatedSearchText);
+      }
     });
 
     foundAmazonItems?.forEach((item: string) => {
-      const resultText = item.replace(":", "").replace(/[0-9]+\. /, "");
+      const resultText = item
+        .replace(":", "")
+        .replace(" -", "")
+        .replace(/[0-9]+\. /, "");
 
-      this.relatedSearches.push(resultText);
+      if (!this.relatedSearches.includes(resultText)) {
+        this.relatedSearches.push(resultText);
+      }
 
       // add referral parameters and amazon search url
-      result = result.replace(
+      result = result.replaceAll(
         resultText,
         `<a href="${this.createAmazonUrl(
           resultText
