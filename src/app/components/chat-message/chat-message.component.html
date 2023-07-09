@@ -1,17 +1,17 @@
 <div
-  [ngClass]="thinking ? 'bg-gray-600' : 'c-animated-background'"
-  class="m-5 rounded p-2 shadow"
+  [ngClass]="thinking ? 'bg-gray-200 dark:bg-gray-600' : 'c-animated-background'"
+  class="border-2 border-gray-300 dark:border-gray-600 m-5 rounded p-2 shadow"
 >
   <div class="flex flex-1 m-3">
     <fa-icon [icon]="['fas', 'user']" class="text-black"></fa-icon>
 
-    <strong class="text-gray-50 ml-3">{{ message.message }}</strong>
+    <strong class="text-gray-950 dark:text-gray-50 ml-3">{{ message.message }}</strong>
   </div>
 
   <div class="flex">
     <div class="ml-auto m-3">
 
-      <span [class.text-red-400]="message.error" class="text-gray-50 text-right mr-3">
+      <span [class.text-red-400]="message.error" class="text-gray-950 dark:text-gray-50 text-right mr-3">
         <span [innerHTML]="formattedResponse"></span>
       </span>
     </div>
@@ -19,7 +19,7 @@
 
   <ais-share-menu [chatMessage]="message.message"></ais-share-menu>
 
-  <div *ngIf="relatedSearches.length" class="text-gray-200">
+  <div *ngIf="relatedSearches.length" class="text-gray-950 dark:text-gray-200">
     <b>Related Amazon searches</b>
 
     <ng-container *ngFor="let search of relatedSearches">

@@ -13,7 +13,7 @@
     <input
       id="main-input"
       type="text"
-      class="bg-gray-700 border-gray-500 border-r-0 text-gray-50 text-lg font-sans p-3 rounded rounded-r-none drop-shadow outline-none flex-grow focus:outline-gray-600 disabled:bg-opacity-25"
+      class="bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600 border-2 border-r-0 text-gray-950 dark:text-gray-50 text-lg font-sans p-3 rounded rounded-r-none drop-shadow outline-none flex-grow focus:outline-gray-300 dark:focus:outline-gray-600 disabled:bg-opacity-80"
       spellcheck="true"
       placeholder="Search for a product"
       multiple="true"
@@ -24,7 +24,7 @@
     />
 
     <button
-      class="bg-gray-700 border-gray-500 border-l-0 p-2 px-4 rounded rounded-l-none text-gray-50 focus:outline-gray-600 hover:bg-gray-600 hover:cursor-pointer disabled:bg-opacity-25"
+      class="bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600 border-2 border-l-0 p-2 px-4 rounded rounded-l-none text-gray-950 dark:text-gray-50 focus:outline-gray-300 dark:focus:outline-gray-600 hover:outline-gray-300 dark:hover:bg-gray-600 hover:cursor-pointer disabled:bg-opacity-80"
       [disabled]="awaitingResponse"
       (click)="!awaitingResponse && sendMessage()"
     >

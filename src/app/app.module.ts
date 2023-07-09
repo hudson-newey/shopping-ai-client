@@ -1,17 +1,28 @@
 import { NgModule, isDevMode } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ChatComponent } from "./components/chat/chat.component";
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faGears, faLink, faMagnifyingGlass, faPlus, faUser, fas } from "@fortawesome/free-solid-svg-icons";
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from "@fortawesome/angular-fontawesome";
+import {
+  faBars,
+  faGears,
+  faLink,
+  faMagnifyingGlass,
+  faPlus,
+  faUser,
+  fas,
+} from "@fortawesome/free-solid-svg-icons";
 import { FormsModule } from "@angular/forms";
 import { ChatMessageComponent } from "./components/chat-message/chat-message.component";
 import { ChatHistoryComponent } from "./components/saved-chats/chat-history.component";
 import { SavedChatComponent } from "./components/saved-chat/saved-chat.component";
 import { ExamplesComponent } from "./components/examples/examples.component";
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule } from "@angular/service-worker";
 import { faReddit, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { HttpClientModule } from "@angular/common/http";
 import { ShareMenuComponent } from "./components/share-menu/share-menu.component";
@@ -33,15 +44,15 @@ import { ShareMenuComponent } from "./components/share-menu/share-menu.component
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+      registrationStrategy: "registerWhenStable:30000",
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   public constructor(library: FaIconLibrary) {
