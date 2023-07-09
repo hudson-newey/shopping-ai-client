@@ -70,7 +70,8 @@ export class ChatMessageComponent {
       const resultText = item
         .replace(":", "")
         .replace(" -", "")
-        .replace(/[0-9]+\. /, "");
+        .replace(/[0-9]+/, "")
+        .replace(/[\.|\-|\:] /, "");
 
       if (!this.relatedSearches.includes(resultText)) {
         this.relatedSearches.push(resultText);
@@ -84,6 +85,9 @@ export class ChatMessageComponent {
         )}" class="text-blue-300" target="_blank">${resultText}</a>`
       );
     });
+
+    // remove duplicate entries from the related searches
+    this.relatedSearches = [...new Set(this.relatedSearches)];
 
     // replace new line characters with <br>
     return this.sanitizer.bypassSecurityTrustHtml(
