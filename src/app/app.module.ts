@@ -26,6 +26,7 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { faReddit, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { HttpClientModule } from "@angular/common/http";
 import { ShareMenuComponent } from "./components/share-menu/share-menu.component";
+import { CountryPickerComponent } from "./components/country-picker/country-picker.component";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ShareMenuComponent } from "./components/share-menu/share-menu.component
     SavedChatComponent,
     ExamplesComponent,
     ShareMenuComponent,
+    CountryPickerComponent,
   ],
   imports: [
     BrowserModule,

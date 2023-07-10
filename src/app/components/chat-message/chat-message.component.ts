@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { ActivatedRoute, Params } from "@angular/router";
 
 export interface ChatMessage {
   name: string;
@@ -19,7 +20,10 @@ export interface ApiChatMessage {
   styleUrls: ["./chat-message.component.scss"],
 })
 export class ChatMessageComponent {
-  public constructor(private sanitizer: DomSanitizer) {}
+  public constructor(
+    private sanitizer: DomSanitizer,
+    private route: ActivatedRoute
+  ) {}
 
   @Input() public message: ChatMessage = {
     name: "Anonymous",
@@ -82,7 +86,7 @@ export class ChatMessageComponent {
         resultText,
         `<a href="${this.createAmazonUrl(
           resultText
-        )}" class="text-blue-300" target="_blank">${resultText}</a>`
+        )}" class="text-blue-600 dark:text-blue-300" target="_blank">${resultText}</a>`
       );
     });
 
@@ -96,9 +100,12 @@ export class ChatMessageComponent {
   }
 
   protected createAmazonSearchUrl(searchTerm: string): string {
+    // since each country has its own amazon sub domain, we should append the users country to the domain
+    const countryExtension = this.route.snapshot.queryParams["country"] || ".com";
+
     searchTerm = searchTerm.replaceAll('"', "");
     searchTerm = searchTerm.replaceAll(" ", "%20");
-    return `https://www.amazon.com/s?k=${searchTerm}&tag=shoppingas09c-20&linkCode=ur2&linkId=13298757f791956381bc4bf80afbb588&camp=1789&creative=9325`;
+    return `https://www.amazon${countryExtension}/s?k=${searchTerm}&tag=shoppingas09c-20&linkCode=ur2&linkId=13298757f791956381bc4bf80afbb588&camp=1789&creative=9325`;
   }
 
   protected createAmazonUrl(productName: string): string {
