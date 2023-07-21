@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { ActivatedRoute, Params } from "@angular/router";
+import { environment } from "src/app/environment";
 
 export interface ChatMessage {
   name: string;
@@ -58,7 +59,7 @@ export class ChatMessageComponent {
     foundAmazonSearchRequests?.forEach((searchRequest: string) => {
       result = result.replace(
         searchRequest,
-        `<a href="${this.createAmazonSearchUrl(
+        `<a href="${this.createMonetizedAmazonSearchUrl(
           searchRequest
         )}" class="text-blue-300" target="_blank">${searchRequest}</a>`
       );
@@ -105,10 +106,23 @@ export class ChatMessageComponent {
 
     searchTerm = searchTerm.replaceAll('"', "");
     searchTerm = searchTerm.replaceAll(" ", "%20");
+    return `https://www.amazon${countryExtension}/s?k=${searchTerm}`;
+  }
+
+  protected createMonetizedAmazonSearchUrl(searchTerm: string): string {
+    // since each country has its own amazon sub domain, we should append the users country to the domain
+    const countryExtension = this.route.snapshot.queryParams["country"] || ".com";
+
+    searchTerm = searchTerm.replaceAll('"', "");
+    searchTerm = searchTerm.replaceAll(" ", "%20");
     return `https://www.amazon${countryExtension}/s?k=${searchTerm}&tag=shoppingas09c-20&linkCode=ur2&linkId=13298757f791956381bc4bf80afbb588&camp=1789&creative=9325`;
   }
 
   protected createAmazonUrl(productName: string): string {
+    if (environment.commercial) {
+      return this.createMonetizedAmazonSearchUrl(productName);
+    }
+
     return this.createAmazonSearchUrl(productName);
   }
 }
