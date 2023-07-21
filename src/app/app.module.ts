@@ -14,6 +14,7 @@ import {
   faLink,
   faMagnifyingGlass,
   faPlus,
+  faShareNodes,
   faUser,
   fas,
 } from "@fortawesome/free-solid-svg-icons";
@@ -67,5 +68,6 @@ export class AppModule {
     library.addIcons(faTwitter);
     library.addIcons(faReddit);
     library.addIcons(faLink);
+    library.addIcons(faShareNodes);
   }
 }

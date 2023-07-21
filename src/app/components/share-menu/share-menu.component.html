@@ -9,4 +9,7 @@
   <a class="mr-2 cursor-pointer hover:text-gray-400" [href]="shareableLink" target="_blank">
     <fa-icon [icon]="['fas', 'link']"></fa-icon>
   </a>
+  <button *ngIf="isMobile()" href="mr-2 cursor-pointer hover:text-gray-400" (click)="systemShareTray()">
+    <fa-icon [icon]="['fas', 'share-nodes']"></fa-icon>
+  </button>
 </div>

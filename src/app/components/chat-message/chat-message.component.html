@@ -26,7 +26,7 @@
     <ng-container *ngFor="let search of relatedSearches">
       <div class="flex">
         <fa-icon class="mr-2" [icon]="['fas', 'magnifying-glass']"></fa-icon>
-        <a [href]="createAmazonSearchUrl(search)" class="mr-2 text-blue-300" target="_blank">{{ search }}</a>
+        <a [href]="createAmazonSearchUrl(search)" class="mr-2 text-blue-600 dark:text-blue-300" target="_blank">{{ search }}</a>
       </div>
     </ng-container>
   </div>

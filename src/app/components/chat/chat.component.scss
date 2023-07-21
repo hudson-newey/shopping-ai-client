@@ -1,3 +1,8 @@
+* {
+  scrollbar-color: rgb(55 65 81 / var(--tw-bg-opacity)) rgb(249 250 251 / var(--tw-text-opacity));
+  scrollbar-width: thick;
+}
+
 #main-input {
   width: 100%;
 }
@@ -12,8 +17,5 @@
 
 ::-webkit-scrollbar-thumb {
   background: rgb(249 250 251 / var(--tw-text-opacity));
-}
-
-::-webkit-scrollbar-thumb:hover {
   background: #888;
 }

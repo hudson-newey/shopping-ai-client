@@ -8,7 +8,7 @@ function build {
   ng build --configuration=production;
 }
 
-if grep -Fxq "apiUrl: 'https://api.onlineshopgpt.com/api'," ./src/environment.rs; then
+if grep -Fxq "apiUrl: 'https://api.onlineshopgpt.com/api'," ./src/app/environment.ts; then
   build;
 else
   echo "Your environment is not set to the default production environment";

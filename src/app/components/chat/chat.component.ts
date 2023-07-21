@@ -38,7 +38,7 @@ export class ChatComponent implements OnInit {
     this.userInput = "";
 
     if (query.length === 0) {
-      console.log("bailing out");
+      console.debug("bailing out");
       return;
     }
 
@@ -47,7 +47,9 @@ export class ChatComponent implements OnInit {
       message: query,
     };
 
-    this.messages.push(message);
+    if (!this.messages.some((item) => item.message === message.message)) {
+      this.messages.push(message);
+    }
 
     if (this.isBannedQuery(message.message)) {
       message.response = bannedWordsResponse;
