@@ -7,7 +7,7 @@ export const environment = {
   // no data is collected if private is set to true
   private: true,
   // the route api endpoint
-  apiUrl: 'https://api.onlineshopgpt.com/api',
+  apiUrl: 'http://localhost:8080/api',
   brandName: 'Online Shop GPT',
   // used for amazon affiliate links
   affiliateCode: "shoppingas09c-20",

@@ -1,34 +1,56 @@
-<div class="flex flex-col min-h-screen max-h-screen sm:w-2/3">
-  <div class="overflow-y-auto">
-    <ng-container *ngFor="let message of messages">
-      <ais-chat-message [message]="message"></ais-chat-message>
+<ais-chat-history></ais-chat-history>
+
+<div
+  class="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800"
+>
+  <div class="flex flex-col min-h-screen max-h-screen sm:w-2/3">
+    <div class="overflow-y-auto">
+      <ng-container *ngFor="let message of messages">
+        <ais-chat-message [message]="message"></ais-chat-message>
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="messages.length <= 0">
+      <ais-examples></ais-examples>
+
+      <div class="m-auto text-center text-lg">
+        <a class="text-gray-50 p-2 underline cursor-pointer" routerLink="/about"
+          >About</a
+        >
+        <a
+          class="text-gray-50 p-2 underline cursor-pointer"
+          routerLink="/contact-us"
+          >Contact Us</a
+        >
+        <a
+          class="text-gray-50 p-2 underline cursor-pointer"
+          routerLink="/services"
+          >Services</a
+        >
+      </div>
     </ng-container>
-  </div>
 
-  <ng-container *ngIf="messages.length <= 0">
-    <ais-examples></ais-examples>
-  </ng-container>
+    <div class="mt-auto p-4 flex">
+      <input
+        id="main-input"
+        type="text"
+        class="bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600 border-2 border-r-0 text-gray-950 dark:text-gray-50 text-lg font-sans p-3 rounded rounded-r-none drop-shadow outline-none flex-grow focus:outline-gray-300 dark:focus:outline-gray-600 disabled:bg-opacity-80"
+        spellcheck="true"
+        placeholder="Search for a product"
+        multiple="true"
+        [(ngModel)]="userInput"
+        (keydown.enter)="!awaitingResponse && sendMessage()"
+        [disabled]="awaitingResponse"
+        autofocus
+      />
 
-  <div class="mt-auto p-4 flex">
-    <input
-      id="main-input"
-      type="text"
-      class="bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600 border-2 border-r-0 text-gray-950 dark:text-gray-50 text-lg font-sans p-3 rounded rounded-r-none drop-shadow outline-none flex-grow focus:outline-gray-300 dark:focus:outline-gray-600 disabled:bg-opacity-80"
-      spellcheck="true"
-      placeholder="Search for a product"
-      multiple="true"
-      [(ngModel)]="userInput"
-      (keydown.enter)="!awaitingResponse && sendMessage()"
-      [disabled]="awaitingResponse"
-      autofocus
-    />
-
-    <button
-      class="bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600 border-2 border-l-0 p-2 px-4 rounded rounded-l-none text-gray-950 dark:text-gray-50 focus:outline-gray-300 dark:focus:outline-gray-600 hover:outline-gray-300 dark:hover:bg-gray-600 hover:cursor-pointer disabled:bg-opacity-80"
-      [disabled]="awaitingResponse"
-      (click)="!awaitingResponse && sendMessage()"
-    >
-      <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
-    </button>
+      <button
+        class="bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600 border-2 border-l-0 p-2 px-4 rounded rounded-l-none text-gray-950 dark:text-gray-50 focus:outline-gray-300 dark:focus:outline-gray-600 hover:outline-gray-300 dark:hover:bg-gray-600 hover:cursor-pointer disabled:bg-opacity-80"
+        [disabled]="awaitingResponse"
+        (click)="!awaitingResponse && sendMessage()"
+      >
+        <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
+      </button>
+    </div>
   </div>
 </div>

@@ -32,11 +32,17 @@ export class CountryPickerComponent implements OnInit {
   };
 
   public ngOnInit(): void {
+    const userAgentLanguage = this.userCountry();
+
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.countryCode =
         queryParams["country"] ??
-        this.userCountryDictionary[this.userCountry()] ??
+        this.userCountryDictionary[userAgentLanguage] ??
         ".com";
+
+        if (queryParams["country"] !== this.userCountryDictionary[userAgentLanguage]) {
+          this.updateCountry();
+        }
     });
   }
 
