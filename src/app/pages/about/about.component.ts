@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
+import { environment } from "src/app/environment";
 
 @Component({
   selector: "ais-about-page",
@@ -7,4 +8,8 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AboutPageComponent {
   public constructor() { }
+
+  protected get websiteUrl() {
+    return environment.url;
+  }
 }
