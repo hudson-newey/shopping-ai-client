@@ -1,7 +1,5 @@
 # AI Shopping Client
 
-[onlineshopgpt.com](https://onlineshopgpt.com)
-
 ## To Run
 
 ```sh
@@ -51,32 +49,3 @@ Similar to chatGPT, you can ask followup questions
 e.g.
 
 > What if my driveway is on a slope?
-
-**Competitors**
-
-* shop.ai (shop.app)
-
-**Possible revenue streams**
-
-* Referral links
-* Web component for a specific store
-  * Companies can see user profiles
-  * Companies can create user profiles
-* Sponsored ads at top of results
-* Banner ads (probably not)
-* API
-* Sell web & mobile clients for specific stores
-
-**Clients**
-
-* Web app
-* Mobile app
-* Progressive web app
-* Desktop app
-
-**Advertisements**
-
-* Reddit
-* Twitter
-* TikTok
-* Google ads
