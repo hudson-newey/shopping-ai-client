@@ -1,5 +1,7 @@
 # AI Shopping Client
 
+Should be run in combination with [hudson-newey/shopping-ai-api](https://github.com/hudson-newey/shopping-ai-api/)
+
 ## To Run
 
 ```sh
